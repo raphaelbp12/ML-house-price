@@ -60,29 +60,41 @@ from sklearn.metrics import mean_squared_error
 # import xgboost as xgb
 # import lightgbm as lgb
 
-#Validation function
-# n_folds = 5
-
-# def rmsle_cv(model):
-#     kf = KFold(n_folds, shuffle=True, random_state=42).get_n_splits(X_train.values)
-#     rmse= np.sqrt(-cross_val_score(model, X_train.values, y_train, scoring="neg_mean_squared_error", cv = kf))
-#     return(rmse)
-
-# lasso = make_pipeline(RobustScaler(), Lasso(alpha = 0.0005, random_state=1))
-
-# score = rmsle_cv(lasso)
-# print("\nLasso score: {:.4f} ({:.4f})\n".format(score.mean(), score.std()))
-
 X_train_splited, X_test_splited, y_train_splited, y_test_splited = train_test_split(X_train, y_train, test_size = 0.3, random_state = 0)
 
-lasso = Lasso(random_state=0, max_iter=50000)
+estimators = []
+parameters = []
+names = []
+
 alphas = np.logspace(-4, -0.5, 30)
 
-tuned_parameters = [{'alpha': [0.0005298316906283707]}]
+ridge = Ridge(random_state=0, max_iter=50000)
+ridge_tuned_parameters = [{'alpha': [0.31622776601683794]}]
+estimators.append(ridge)
+parameters.append(ridge_tuned_parameters)
+names.append('ridge')
+
+lasso = Lasso(random_state=0, max_iter=50000)
+lasso_tuned_parameters = [{'alpha': [0.0005298316906283707]}]
+estimators.append(lasso)
+parameters.append(lasso_tuned_parameters)
+names.append('lasso')
+
+elastic = ElasticNet(l1_ratio=.9, random_state=3, max_iter=50000)
+elastic_tuned_parameters = [{'alpha': [0.0005298316906283707]}]
+estimators.append(elastic)
+parameters.append(elastic_tuned_parameters)
+names.append('elastic')
+
+KRR = KernelRidge(kernel='polynomial', degree=2, coef0=2.5)
+KRR_tuned_parameters = [{'alpha': [0.6]}]
+estimators.append(KRR)
+parameters.append(KRR_tuned_parameters)
+names.append('KRR')
 
 from gridSearchAuto import gridSearchAuto
 
-gridSearchAuto([lasso], [tuned_parameters], ['lasso'], X_train_splited, y_train_splited, X_test_splited, y_test_splited)
+gridSearchAuto(estimators, parameters, names, X_train_splited, y_train_splited, X_test_splited, y_test_splited)
 
 # print(clf.get_params())
 
