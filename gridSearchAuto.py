@@ -18,7 +18,7 @@ def gridSearchAuto(estimators, parameters, names, x_train, y_train, x_test, y_te
         clf = GridSearchCV(estimators[index], parameters[index], cv=n_folds, refit=True)
         clf.fit(x_train_copy, y_train_copy)
         scores = clf.cv_results_['mean_test_score']
-        print(scores)
+        # print(scores)
 
         y_pred_train = clf.predict(x_test_copy)
         print(names[index] + " alpha: ")
@@ -32,6 +32,9 @@ def gridSearchAuto(estimators, parameters, names, x_train, y_train, x_test, y_te
 
 
         y_pred_test=clf.predict(x_submission)
+
+        # print(names[index])
+        # print(y_pred_test)
 
         # shape to export
         output=pd.concat([y_id, DataFrame(np.exp(y_pred_test)-1)], axis=1, ignore_index=True)
