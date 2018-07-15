@@ -94,16 +94,4 @@ names.append('KRR')
 
 from gridSearchAuto import gridSearchAuto
 
-gridSearchAuto(estimators, parameters, names, X_train_splited, y_train_splited, X_test_splited, y_test_splited)
-
-# print(clf.get_params())
-
-
-# y_pred_test=clf.predict(X_test)
-
-# shape to export
-# output=pd.concat([y_id, DataFrame(np.exp(y_pred_test)-1)], axis=1, ignore_index=True)
-# output.columns=['Id', 'SalePrice']
-
-# export
-# output.to_csv('./submission.csv', sep=',', index=False)
+gridSearchAuto(estimators, parameters, names, X_train_splited, y_train_splited, X_test_splited, y_test_splited, X_test, y_id)

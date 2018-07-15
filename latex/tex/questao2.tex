@@ -1,0 +1,323 @@
+\section{Trechos importantes do código}
+
+Primeiramente é importante ressaltar que os trechos de códigos vistos abaixo foram escritos na linguagem do Matlab.
+
+\subsection{Variáveis importantes}
+\lstset {
+  backgroundcolor=\color{white}, 
+   basicstyle=\tiny,       
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+   commentstyle=\color{red},
+   frame=single,
+   keepspaces=true,
+   language=Matlab,
+   numbers=left,
+   numbersep=5pt,
+   numberstyle=\tiny\color{gray},
+   showspaces=false,
+   showstringspaces=false,
+   showtabs=false,
+   stepnumber=1,
+   stringstyle=\color{mauve},
+   tabsize=1,
+}
+\begin{lstlisting}
+handles.ns = 0;
+handles.Soriginal = [];
+
+.
+.
+.
+
+chegada = str2num(get(handles.edit1, 'String'));
+
+tempComp = str2num(get(handles.edit2, 'String'));
+
+deadline = str2num(get(handles.edit3, 'String'));
+
+prioridade = str2num(get(handles.edit4, 'String'));
+
+\end{lstlisting}
+
+No trecho acima pode-se observar algumas variáveis importantes para o bom funcionamento do protocolo estudado, em que:
+
+
+\begin{itemize}
+  \item handles.ns é o número de semáforos utilizados por um determinado conjunto de tarefas;
+  \item handles.Soriginal são os parâmetros de cada semáforo e sua relação com cada tarefa, ou seja, quanto tempo a tarefa irá utilizá-lo e apartir de que instante ela necessitará desse semáforo.
+\end{itemize}
+
+São as variáveis globais do código, isto é, podem ser acessadas por qualquer função do programa.
+Já as  variáveis abaixo, são as variaveis locais da função principal do programa.
+
+\begin{itemize}
+  \item chegada é um array que contém os tempo de chegada de cada tarefa;
+  \item tempComp é um array que armazena os tempos de execução para cada tarefa;
+  \item deadline array para armazenar os tempos limites(deadlines) de cada tarefa a ser executada;
+  \item prioridade é um array que armazena as prioridades "normal" de cada tarefa;
+\end{itemize}
+
+É importante observar a função $get(handle. , '')$ vistas na atribuição de cada uma dessas últimas variáveis listadas, isso uma vez que esta função é responsável por adquirir o valor do campo correspondente àquela variável na interface.
+
+
+\subsection{Botão de inserção}
+
+Nesta seção analisa-se o funcionamento do botão \textit{Inserir}. 
+
+\lstset {
+  backgroundcolor=\color{white}, 
+   basicstyle=\tiny,       
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+   commentstyle=\color{red},
+   frame=single,
+   keepspaces=true,
+   language=Matlab,
+   numbers=left,
+   numbersep=5pt,
+   numberstyle=\tiny\color{gray},
+   showspaces=false,
+   showstringspaces=false,
+   showtabs=false,
+   stepnumber=1,
+   stringstyle=\color{mauve},
+   tabsize=1,
+}
+\begin{lstlisting}
+function pushbutton2_Callback(hObject, eventdata, handles)
+w = handles.ns + 1;
+initial_temp = cellstr(get(handles.listbox1,'String'))
+a = get(handles.edit6, 'String');
+temp = [initial_temp; a];
+set(handles.listbox1, 'String', temp);
+b =  str2num(a);
+handles.ns = w;
+handles.Soriginal(:,:,w) = str2num(get(handles.edit6, 'String'));
+guidata(hObject, handles);
+
+\end{lstlisting}
+
+Este botão, como o nome sugere serve para a inserção de um semáforo na execução das tarefas, para isso é necessário que se escreva os parâmetros do semáforo, isto é, tempo em que cada tarefafaz o requerimento para utilizá-lo; duração da execução de cada tarefa utilizando este semáforo e por fim o "status" da tarefa em relação ao semáforo sendo:
+
+\begin{enumerate}
+\item 0 $\rightarrow$ para tarefas inativas;
+\item 1 $\rightarrow$ para tarefas ativas;
+\item 2 $\rightarrow$ para tarefas finalizadas ou inexistentes em relação ao semáforo.
+\end{enumerate}
+
+\subsection{Loop principal}
+
+Nesta seção é mostrado o trecho do código onde "a mágica acontece", isso tendo em vista que é nesse trecho que todas as comparações e definições de prioridades ocorrem como pode ser visto abaixo:
+
+\lstset {
+   backgroundcolor=\color{white}, 
+   basicstyle=\tiny,       
+   breakatwhitespace=false,
+   breaklines=true,
+   captionpos=b,
+   commentstyle=\color{red},
+   frame=single,
+   keepspaces=true,
+   language= Matlab,
+   numbers=left,
+   numbersep=5pt,
+   numberstyle=\tiny\color{gray},
+   showspaces=false,
+   showstringspaces=false,
+   showtabs=false,
+   stepnumber=1,
+   stringstyle=\color{mauve},
+   tabsize=1,
+}
+\begin{lstlisting}
+if length(tam)< 3;
+    tam(3) = 1;
+end
+for i=1:tam(3)
+    prioridadeBloqueada(i)=101;
+    
+    [cores(i,1),cores(i,2),cores(i,3)]=HSVtoRGB(1+(i-1)*(358/(tam(3))),.41,.86);
+    
+    for j=1:tam(1)
+        if S(j,2,i)>0
+            C(i)=j;
+            break;
+        end
+    end
+end
+
+C(length(C)+1)=100;
+
+tempo=0;
+
+for i=1:length(chegada)
+    prioridadeAtiva(i)=100;
+end
+
+
+ativos=zeros(length(chegada));
+
+
+largura=max((sum(sum(S(:,2,:)))+sum(tempComp))*1.2,(max(deadline)+2));
+
+
+tic;
+
+
+cla
+hold on
+grid on
+set(gca,'xtick',[0:1:largura])
+
+xlim([0,largura])
+ylim([0,20*(1+length(chegada))])
+set(gca,'YTick',[0:20:20*length(chegada)])
+
+for i=1:length(chegada)
+    plot([chegada(i),chegada(i)],[20*(length(chegada)+1-i),20*(length(chegada)+1-i)+15],'-.b','LineWidth',2)
+    plot([deadline(i),deadline(i)],[20*(length(chegada)+1-i),20*(length(chegada)+1-i)+15],'-.r','LineWidth',2)
+end
+
+drawnow
+
+
+SmaiorCeiling=length(C);
+
+
+while (true)
+
+    paraContador=toc;
+      
+
+    tic;
+    
+
+    tempo=tempo+paraContador;
+
+    for i=1:length(chegada)
+        if ~ativos(i) && chegada(i)<=tempo
+            ativos(i)=1;
+            prioridadeAtiva(i)=prioridade(i);
+        end            
+    end
+    
+
+    [minimo,proximoProcesso]=min(prioridadeAtiva);
+      
+    for i=1:tam(3)
+        if S(proximoProcesso,3,i)==0 & compFeita(proximoProcesso) >= S(proximoProcesso,1,i)
+            for j=1:tam(3)
+                if any(S(:,3,j)==1) & C(SmaiorCeiling)>C(j)
+                    SmaiorCeiling=j;
+                end
+            end
+            
+            if prioridadeAtiva(proximoProcesso)<C(SmaiorCeiling) | any(S(proximoProcesso,3,:)==1)
+                S(proximoProcesso,3,i)=1;
+                
+            else
+
+                prioridadeAtiva(find((S(:,3,SmaiorCeiling))==1))=proximoProcesso-0.1;
+                
+                prioridadeBloqueada(SmaiorCeiling)=proximoProcesso-0.1;
+            end
+        end
+    end
+    
+    if minimo<100
+        
+        if ~(any(S(proximoProcesso,3,:)==1))
+        
+            compRestante(proximoProcesso)=compRestante(proximoProcesso)-paraContador;
+            if compRestante(proximoProcesso)<0
+                compRestante(proximoProcesso)=0;
+                tempo=tempo+compRestante(proximoProcesso);
+                paraContador=paraContador-compRestante(proximoProcesso);
+            end
+            
+            compFeita(proximoProcesso)=compFeita(proximoProcesso)+paraContador;
+
+            rectangle('Position',[tempo-paraContador,20*(length(chegada)+1-proximoProcesso),paraContador,10],'FaceColor',[0.6 0.6 0.9],'LineStyle','None');
+            drawnow
+            
+        else
+
+            zonaAtiva=[0 0];
+            for i=1:tam(3)
+                if S(proximoProcesso,3,i)==1 & S(proximoProcesso,1,i)>=zonaAtiva(2)
+                    zonaAtiva=[i S(proximoProcesso,1,i)];
+                end
+            end            
+            
+            S(proximoProcesso,2,zonaAtiva(1))=S(proximoProcesso,2,zonaAtiva(1))-paraContador;
+            compFeita(proximoProcesso)=compFeita(proximoProcesso)+paraContador;
+            
+            if S(proximoProcesso,2,zonaAtiva(1))<0
+                S(proximoProcesso,2,zonaAtiva(1))=0;
+                tempo=tempo+S(proximoProcesso,2,zonaAtiva(1));
+                paraContador=paraContador-S(proximoProcesso,2,zonaAtiva(1));
+            end
+            
+            rectangle('Position',[tempo-paraContador,20*(length(chegada)+1-proximoProcesso),paraContador,10],'FaceColor',cores(zonaAtiva(1),:),'LineStyle','None');
+            xlim([0,largura])
+            ylim([0,20*(1+length(chegada))])
+            set(gca,'YTick',[0:20:20*length(chegada)])
+            drawnow
+            
+            if S(proximoProcesso,2,zonaAtiva(1))<=0
+                %Marca fim da zona
+                S(proximoProcesso,3,zonaAtiva(1))=2;
+                           
+                prioridadeBloqueada(zonaAtiva(1))=101;
+                
+                prioridadeAtiva(proximoProcesso)=proximoProcesso;
+                for i=1:tam(3)
+                    if S(proximoProcesso,3,i)==1
+                        prioridadeAtiva(proximoProcesso)=min(prioridadeAtiva(proximoProcesso),prioridadeBloqueada(i));
+                    end
+                end
+
+                SmaiorCeiling=length(C);
+                
+                for j=1:tam(3)
+                    if any(S(:,3,j)==1) & C(SmaiorCeiling)>C(j)
+                        SmaiorCeiling=j;
+                    end
+                end
+            
+            end
+            
+            
+        end
+    end
+    
+    if compRestante(proximoProcesso)<=0
+        
+        prioridadeAtiva(proximoProcesso)=105;
+        
+        if max(compRestante)<=0
+            break;
+        end
+    end
+
+\end{lstlisting}
+
+\subsection{Explicação do Programa}
+
+Para um melhor entendimento do programa uma breve explicação do mesmo se faz necessária.\\
+
+Para a simulação, o usuário deve fornecer vetores com as informações dos tempos de chegada, tempo de computação, deadline e as informações sobre as zonas críticas.
+
+As zonas críticas, associadas cada uma a um recurso exlusivo e um semáforo, devem ser fornecidas com tempos de chegada e de computação.  O tempo de chegada é o tempo total de computação da tarefa que deve ter se passado para que ela entre numa zona crítica, esse tempo leva em conta outras zonas críticas pelas quais essa tarefa pode ter passado.
+
+O simulador funciona em loop, que só acaba quando todas as tarefas terminam de ser computadas. A cada ciclo, o programa mede quanto tempo se passou desde o ciclo anterior, para simular o melhor possível um sistema em tempo real.
+
+Ao início de cada loop o programa primeiro checa se alguma tarefa nova chegou, caso sim, ele a marca com uma tarefa ativa. Após isso, há uma checagem de qual é a tarefa ativa que possui maior prioridade (no caso o valor menor entre os dados pelo usuário) e essa é a tarefa que rodará nesse ciclo.
+A tarefa que roda no ciclo atual começa verificando se ela acabou de entrar em uma zona crítica. Caso tenha entrado, é preciso verificar se há algum ceiling $\textit{C($S^{*}$)}$ com prioridade maior ou igual à da tarefa atual entre os semáforos ativos, para bloquear e passar a prioridade da tarefa pra $\textit{$S^{*}$}$, caso sim, ou permitir a entrada na zona crítica, caso não.
+
+Após essa verificação, há a verificação de se há alguma zona crítica ativa ou não. Caso haja, o programa identifica qual é e desconta do seu contador de duração da zona crítica o tempo do ciclo, verificando se a zona crítica chegou ao fim, para poder liberar a tarefa de maior prioridade por ela bloqueada e reduzir a prioridade da tarefa atual de acordo com a lógica do PCP. Caso não haja zona crítica ativa, o tempo do ciclo é descontado do contador de duração da computação, verificando se a computação chegou ao fim, para desativar a tarefa.
+
+Com essa forma de funcionamento, o simulador é capaz de simular o PCP ao longo de tantos loops quanto forem necessários para que todas as tarefas terminem de computar.

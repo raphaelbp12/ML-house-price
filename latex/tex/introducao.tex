@@ -1,0 +1,28 @@
+\section{Introdução}
+
+O trabalho consiste na participação de uma competição do Kaggle. A competição prevê a predição de preços de casas baseada em suas características. Para isso, é necessário que seja aplicado o conhecimento adquirido no curso para fazer com que um programa de computador seja capaz de aprender como fazer essa predição baseado numa base de dados conhecida previamente.
+
+Além de fornecer a base de dados de treino (que contém os preços das casas) e a base de teste (base usada para fazer a predição final), o Kaggle também fornece materiais de outros participantes, que auxiliam o processo de aprendizagem e desenvolvimento do programa.
+
+Uma outra informação presente na competição é a descrição de cada uma das características possíveis das casas, para que auxilie o desenvolvedor a escolher o que fazer com cada uma das colunas da base de dados.
+
+\subsection{Arquivos fornecidos pelo Kaggle}
+
+\begin{itemize}
+\item \textbf{$train.csv$} - dataset de treino
+\item \textbf{$test.csv$} - dataset de teste
+\item \textbf{$data_description.txt$} - descrição de cada uma das características da casa
+\item \textbf{$sample_submission.csv$} - exemplo de arquivo para ser submetido ao Kaggle
+\end{itemize}
+
+\subsection{Como funciona a submissão à competição}
+
+Para submeter a reposta ao Kaggle, o competidor deve criar um arquivo $ .csv $ (valores separados por vírgulas) contendo duas colunas: Id e SalePrice. Além disso, os preços e os Ids devem corresponder, para que o sistema do Kaggle consiga validar o preço para o seu respectivo Id.
+
+Ao enviar o arquivo para a validação, o Kaggle verifica a pontuação da tentativa e informa a colocação.
+
+\subsection{Premissas}
+
+O trabalho apresenta, como premissa, o fato de se usar apenas algoritmos de regressão para realizar a predição dos preços. Além disso, deixou livre a escolha dos algoritmos por parte do participante. Sendo assim, os algoritmos escolhidos foram: Ridge, Lasso, ElasticNet e KernelRidge.
+
+\clearpage
