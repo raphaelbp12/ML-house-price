@@ -3,23 +3,25 @@
 \contentsline {subsection}{\numberline {1.1}Arquivos fornecidos pelo Kaggle}{3}
 \contentsline {subsection}{\numberline {1.2}Como funciona a submiss\IeC {\~a}o \IeC {\`a} competi\IeC {\c c}\IeC {\~a}o}{3}
 \contentsline {subsection}{\numberline {1.3}Premissas}{3}
-\contentsline {section}{\numberline {2}Modelagem do Sistema}{4}
-\contentsline {section}{\numberline {3}Trechos importantes do c\IeC {\'o}digo}{5}
-\contentsline {subsection}{\numberline {3.1}Vari\IeC {\'a}veis importantes}{5}
-\contentsline {subsection}{\numberline {3.2}Bot\IeC {\~a}o de inser\IeC {\c c}\IeC {\~a}o}{5}
-\contentsline {subsection}{\numberline {3.3}Loop principal}{6}
-\contentsline {subsection}{\numberline {3.4}Explica\IeC {\c c}\IeC {\~a}o do Programa}{8}
-\contentsline {section}{\numberline {4}Exemplos de simula\IeC {\c c}\IeC {\~o}es}{9}
-\contentsline {subsection}{\numberline {4.1}Teste 1}{9}
-\contentsline {subsubsection}{\numberline {4.1.1}Configura\IeC {\c c}\IeC {\~o}es}{9}
-\contentsline {subsubsection}{\numberline {4.1.2}Resultado da Simula\IeC {\c c}\IeC {\~a}o}{9}
-\contentsline {subsection}{\numberline {4.2}Teste 2}{10}
-\contentsline {subsubsection}{\numberline {4.2.1}Configura\IeC {\c c}\IeC {\~o}es}{10}
-\contentsline {subsubsection}{\numberline {4.2.2}Resultado da Simula\IeC {\c c}\IeC {\~a}o}{10}
-\contentsline {subsection}{\numberline {4.3}Teste 3}{11}
-\contentsline {subsubsection}{\numberline {4.3.1}Configura\IeC {\c c}\IeC {\~o}es}{11}
-\contentsline {subsubsection}{\numberline {4.3.2}Resultado da Simula\IeC {\c c}\IeC {\~a}o}{11}
-\contentsline {subsection}{\numberline {4.4}Teste 4}{12}
-\contentsline {subsubsection}{\numberline {4.4.1}Configura\IeC {\c c}\IeC {\~o}es}{12}
-\contentsline {subsubsection}{\numberline {4.4.2}Resultado da Simula\IeC {\c c}\IeC {\~a}o}{13}
-\contentsline {section}{\numberline {5}Anexo}{13}
+\contentsline {section}{\numberline {2}Pr\IeC {\'e}-processamento dos dados}{4}
+\contentsline {subsection}{\numberline {2.1}Tratamento de Outliers}{4}
+\contentsline {subsection}{\numberline {2.2}Vari\IeC {\'a}vel Alvo}{5}
+\contentsline {section}{\numberline {3}Trechos importantes do c\IeC {\'o}digo}{8}
+\contentsline {subsection}{\numberline {3.1}Vari\IeC {\'a}veis importantes}{8}
+\contentsline {subsection}{\numberline {3.2}Bot\IeC {\~a}o de inser\IeC {\c c}\IeC {\~a}o}{8}
+\contentsline {subsection}{\numberline {3.3}Loop principal}{9}
+\contentsline {subsection}{\numberline {3.4}Explica\IeC {\c c}\IeC {\~a}o do Programa}{11}
+\contentsline {section}{\numberline {4}Exemplos de simula\IeC {\c c}\IeC {\~o}es}{12}
+\contentsline {subsection}{\numberline {4.1}Teste 1}{12}
+\contentsline {subsubsection}{\numberline {4.1.1}Configura\IeC {\c c}\IeC {\~o}es}{12}
+\contentsline {subsubsection}{\numberline {4.1.2}Resultado da Simula\IeC {\c c}\IeC {\~a}o}{12}
+\contentsline {subsection}{\numberline {4.2}Teste 2}{13}
+\contentsline {subsubsection}{\numberline {4.2.1}Configura\IeC {\c c}\IeC {\~o}es}{13}
+\contentsline {subsubsection}{\numberline {4.2.2}Resultado da Simula\IeC {\c c}\IeC {\~a}o}{13}
+\contentsline {subsection}{\numberline {4.3}Teste 3}{14}
+\contentsline {subsubsection}{\numberline {4.3.1}Configura\IeC {\c c}\IeC {\~o}es}{14}
+\contentsline {subsubsection}{\numberline {4.3.2}Resultado da Simula\IeC {\c c}\IeC {\~a}o}{14}
+\contentsline {subsection}{\numberline {4.4}Teste 4}{15}
+\contentsline {subsubsection}{\numberline {4.4.1}Configura\IeC {\c c}\IeC {\~o}es}{15}
+\contentsline {subsubsection}{\numberline {4.4.2}Resultado da Simula\IeC {\c c}\IeC {\~a}o}{16}
+\contentsline {section}{\numberline {5}Anexo}{16}

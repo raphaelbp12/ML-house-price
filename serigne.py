@@ -2,6 +2,10 @@
 import pandas as pd
 from pandas import DataFrame
 import numpy as np
+import matplotlib.pyplot as plt 
+import seaborn as sns
+from scipy.stats import norm, skew
+from scipy import stats
 
 # import libraries
 from sklearn.model_selection import cross_val_score, train_test_split, GridSearchCV
@@ -19,7 +23,27 @@ start_time = time.time()
 df_train=pd.read_csv('./input/train.csv')
 df_test=pd.read_csv('./input/test.csv')
 
-# df_train = df_train.drop(df_train[(df_train['GrLivArea']>4000) & (df_train['SalePrice']<300000)].index)
+df_train = df_train.drop(df_train[(df_train['GrLivArea']>4000) & (df_train['SalePrice']<300000)].index)
+
+df_train["SalePrice"] = np.log1p(df_train["SalePrice"])
+
+sns.distplot(df_train['SalePrice'] , fit=norm);
+
+# Get the fitted parameters used by the function
+(mu, sigma) = norm.fit(df_train['SalePrice'])
+print( '\n mu = {:.2f} and sigma = {:.2f}\n'.format(mu, sigma))
+
+#Now plot the distribution
+plt.legend(['Normal dist. ($\mu=$ {:.2f} and $\sigma=$ {:.2f} )'.format(mu, sigma)],
+            loc='best')
+plt.ylabel('Frequency')
+plt.title('SalePrice distribution')
+
+#Get also the QQ-plot
+fig = plt.figure()
+res = stats.probplot(df_train['SalePrice'], plot=plt)
+plt.show()
+
 
 #store Ids of homes
 df_train=df_train.drop('Id', axis=1)
@@ -37,8 +61,8 @@ y_train=np.log(y_train+1)
 
 from julienTreat import julienTreat
 
-df_train = julienTreat(df_train, 'train', False)
-df_test = julienTreat(df_test, 'test', False)
+# df_train = julienTreat(df_train, 'train', False)
+# df_test = julienTreat(df_test, 'test', False)
 
 #concate df_train and df_test
 df=pd.concat([df_train, df_test], axis=0, ignore_index=True, sort=False)
@@ -105,4 +129,4 @@ names.append('elastic')
 
 from gridSearchAuto import gridSearchAuto
 
-gridSearchAuto(estimators, parameters, names, X_train_splited, y_train_splited, X_test_splited, y_test_splited, X_test, y_id)
+# gridSearchAuto(estimators, parameters, names, X_train_splited, y_train_splited, X_test_splited, y_test_splited, X_test, y_id)

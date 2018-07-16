@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.14)  15 JUL 2018 00:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.14)  16 JUL 2018 03:37
 entering extended mode
 **./Main.tex
 (Main.tex
@@ -369,71 +369,105 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
- [3]) (tex/questao1.tex
-Overfull \hbox (2.2511pt too wide) in paragraph at lines 3--4
-[]\T1/cmr/m/n/10 O PCP(Priority Cei-ling Pro-to-col) tem como prin-cí-pio es-te
-n-der o PIP(Priority
- []
+ [3]) (tex/questao1.tex (C:\Users\Raphael\AppData\Roaming\MiKTeX\2.9\tex\latex\
+listings\lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+<img/outlier.png, id=23, 481.8pt x 362.85562pt>
+File: img/outlier.png Graphic file (type png)
+<use img/outlier.png>
+Package pdftex.def Info: img/outlier.png  used on input line 49.
+(pdftex.def)             Requested size: 345.0pt x 259.8329pt.
 
 [4
 
-]) (tex/questao2.tex
+ <./img/outlier.png>]
+<img/outlier-retirados.png, id=29, 481.8pt x 356.0803pt>
+File: img/outlier-retirados.png Graphic file (type png)
+<use img/outlier-retirados.png>
+Package pdftex.def Info: img/outlier-retirados.png  used on input line 87.
+(pdftex.def)             Requested size: 345.0pt x 254.98125pt.
+<img/saleprice-normalizado.png, id=30, 480.29437pt x 345.54094pt>
+File: img/saleprice-normalizado.png Graphic file (type png)
+<use img/saleprice-normalizado.png>
+Package pdftex.def Info: img/saleprice-normalizado.png  used on input line 137.
+
+(pdftex.def)             Requested size: 345.0pt x 248.2093pt.
+ [5 <./img/outlier-retirados.png>]
+<img/saleprice-prob.png, id=36, 478.78876pt x 344.03531pt>
+File: img/saleprice-prob.png Graphic file (type png)
+<use img/saleprice-prob.png>
+Package pdftex.def Info: img/saleprice-prob.png  used on input line 142.
+(pdftex.def)             Requested size: 345.0pt x 247.89946pt.
+<img/saleprice-norm.png, id=37, 481.8pt x 346.29375pt>
+File: img/saleprice-norm.png Graphic file (type png)
+<use img/saleprice-norm.png>
+Package pdftex.def Info: img/saleprice-norm.png  used on input line 175.
+(pdftex.def)             Requested size: 345.0pt x 247.97331pt.
+ [6 <./img/saleprice-normalizado.png> <./img/saleprice-prob.png>]
+<img/saleprice-prob-norm.png, id=42, 481.8pt x 340.27126pt>
+File: img/saleprice-prob-norm.png Graphic file (type png)
+<use img/saleprice-prob-norm.png>
+Package pdftex.def Info: img/saleprice-prob-norm.png  used on input line 180.
+(pdftex.def)             Requested size: 345.0pt x 243.66074pt.
+ [7 <./img/saleprice-norm.png> <./img/saleprice-prob-norm.png>]) (tex/questao2.
+tex
 (C:\Users\Raphael\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-[5
+[8
 
 ]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <5> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 142.
- [6] [7]
+ [9] [10]
 Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
  []
 
-) (tex/questao3.tex [8]
+) (tex/questao3.tex [11]
 Overfull \hbox (46.61728pt too wide) in paragraph at lines 28--42
  [][] 
  []
 
-<img/teste1.png, id=46, 828.09375pt x 499.11469pt>
+<img/teste1.png, id=60, 828.09375pt x 499.11469pt>
 File: img/teste1.png Graphic file (type png)
 <use img/teste1.png>
 Package pdftex.def Info: img/teste1.png  used on input line 48.
 (pdftex.def)             Requested size: 345.0pt x 207.94362pt.
-[9 <./img/teste1.png>]
-<img/teste2.png, id=51, 828.84656pt x 501.37312pt>
+[12 <./img/teste1.png>]
+<img/teste2.png, id=66, 828.84656pt x 501.37312pt>
 File: img/teste2.png Graphic file (type png)
 <use img/teste2.png>
 Package pdftex.def Info: img/teste2.png  used on input line 94.
 (pdftex.def)             Requested size: 345.0pt x 208.68564pt.
- [10 <./img/teste2.png>]
-<img/teste3.png, id=56, 828.09375pt x 497.60907pt>
+ [13 <./img/teste2.png>]
+<img/teste3.png, id=72, 828.09375pt x 497.60907pt>
 File: img/teste3.png Graphic file (type png)
 <use img/teste3.png>
 Package pdftex.def Info: img/teste3.png  used on input line 140.
 (pdftex.def)             Requested size: 345.0pt x 207.31635pt.
- [11 <./img/teste3.png>]
-<img/teste4.png, id=61, 826.58812pt x 497.60907pt>
+ [14 <./img/teste3.png>]
+<img/teste4.png, id=77, 826.58812pt x 497.60907pt>
 File: img/teste4.png Graphic file (type png)
 <use img/teste4.png>
 Package pdftex.def Info: img/teste4.png  used on input line 212.
 (pdftex.def)             Requested size: 345.0pt x 207.696pt.
 )
-(tex/conclusao.tex [12]) [13 <./img/teste4.png>] (Main.aux) ) 
+(tex/conclusao.tex [15]) [16 <./img/teste4.png>] (Main.aux) ) 
 Here is how much of TeX's memory you used:
- 7215 strings out of 492973
- 98728 string characters out of 3135926
- 691243 words of memory out of 3000000
- 10941 multiletter control sequences out of 15000+200000
+ 7389 strings out of 492973
+ 101101 string characters out of 3135926
+ 692599 words of memory out of 3000000
+ 11107 multiletter control sequences out of 15000+200000
  19747 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,40p,638b,1648s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,9n,40p,612b,1623s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Raphael
-\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx0500.pk> <C:\U
-sers\Raphael\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm05
+\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\U
+sers\Raphael\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx05
 00.pk> <C:\Users\Raphael\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
-pi600\ecti1000.pk> <C:\Users\Raphael\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
+pi600\ecrm0500.pk> <C:\Users\Raphael\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
 knappen\ec\dpi600\ecbx1200.pk> <C:\Users\Raphael\AppData\Local\MiKTeX\2.9\fonts
 \pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\Raphael\AppData\Local\MiKT
 eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\Users\Raphael\AppDat
@@ -447,9 +481,9 @@ es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX
 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmsy7.pfb>
-Output written on Main.pdf (13 pages, 1105448 bytes).
+Output written on Main.pdf (16 pages, 1251278 bytes).
 PDF statistics:
- 465 PDF objects out of 1000 (max. 8388607)
+ 496 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
