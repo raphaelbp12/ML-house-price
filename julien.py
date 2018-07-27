@@ -10,7 +10,7 @@ from scipy.stats import skew
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from julienTreat import julienTreat
+from dataTreat import dataTreat
 
 # Definitions
 pd.set_option('display.float_format', lambda x: '%.3f' % x)

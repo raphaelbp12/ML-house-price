@@ -1,4 +1,4 @@
-def julienFeatSimp(train):
+def dataFeatSimp(train):
     # 1* Simplifications of existing features
     train["SimplOverallQual"] = train.OverallQual.replace({1 : 1, 2 : 1, 3 : 1, # bad
                                                         4 : 2, 5 : 2, 6 : 2, # average

@@ -1,6 +1,6 @@
 import numpy as np
 
-def julienFeatPoly(train):
+def dataFeatPoly(train):
     train["OverallQual-s2"] = train["OverallQual"] ** 2
     train["OverallQual-s3"] = train["OverallQual"] ** 3
     train["OverallQual-Sq"] = np.sqrt(train["OverallQual"])

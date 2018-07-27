@@ -1,19 +1,19 @@
-from julienMissing import julienMissing
-from julienFeatSimp import julienFeatSimp
-from julienFeatComb import julienFeatComb
-from julienFeatPoly import julienFeatPoly
-from julienCateg import julienCateg
+from dataMissing import dataMissing
+from dataFeatSimp import dataFeatSimp
+from dataFeatComb import dataFeatComb
+from dataFeatPoly import dataFeatPoly
+from dataCateg import dataCateg
 
 import pandas as pd
 import numpy as np
 from scipy.stats import skew
 
-def julienTreat(train, dataName, deleteSalePrice):
-    train = julienMissing(train)
-    train = julienCateg(train)
-    train = julienFeatSimp(train)
-    train = julienFeatComb(train)
-    train = julienFeatPoly(train)
+def dataTreat(train, dataName, deleteSalePrice):
+    train = dataMissing(train)
+    train = dataCateg(train)
+    train = dataFeatSimp(train)
+    train = dataFeatComb(train)
+    train = dataFeatPoly(train)
 
     # print('depois do tratamento')
     # print(train.shape)

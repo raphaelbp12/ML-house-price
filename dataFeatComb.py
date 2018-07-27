@@ -1,4 +1,4 @@
-def julienFeatComb(train):
+def dataFeatComb(train):
     # Overall quality of the house
     train["OverallGrade"] = train["OverallQual"] * train["OverallCond"]
     # Overall quality of the garage
